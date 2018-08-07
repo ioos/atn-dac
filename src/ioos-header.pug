@@ -1,53 +1,42 @@
 header
-  .tc
+  .container-fluid(style={'text-align': 'center'})
     a(href="//ioos.us")
-      img.ma2.h2(src="/images/IOOS_Emblem_Tertiary_B_RGB.png")
-  nav.bg-dark-blue.pa1
-    .w-two-thirds.cf
-      ul.list.dib.fn.ma0.pl0
-        li.fl.db.mr1.relative.tc
-          a.db(href="//ioos.us")
-            img.h2.v-mid(alt="IOOS logo", src="/images/logo-navbar.png")
-        li.fl.db.mr1.relative.tc
-          a.ph3.pv3.db.link.light-blue(href="#", data-toggle="dropdown", role="button",  aria-haspopup="true", aria-expanded="false")
-            | Data
-            span.caret
-          ul.dn(aria-labelledby="drop1")
-            li
-              a(href="//ioos.noaa.gov/about/ioos-by-the-numbers/") Metrics
-            li
-              a(href="//data.ioos.us") Search
-            li
-              a(href="//data.ioos.us/compliance", target="_blank") Compliance Checker
-        li.fl.db.mr1.relative.tc
-          a.ph3.pv3.db.link.light-blue(href="#", data-toggle="dropdown", role="button",  aria-haspopup="true", aria-expanded="false")
-            | Viewers
-            span.caret
-          ul.dn(aria-labelledby="drop2")
-            li
-              a(href="https://oceansmap.com/comt/", target="_blank") COMT
-            li
-              a(href="http://axiomdatascience.com/maps/ioos", target="_blank") Sensor Map
-            li
-              a(href="//eds.ioos.us", target="_blank") EDS Viewer
-        li.fl.db.mr1.relative.tc
-          a.ph3.pv3.db.link.light-blue(href="#", data-toggle="dropdown", role="button",  aria-haspopup="true", aria-expanded="false")
-            | DACs
-            span.caret
-              ul.dn(aria-labelledby="drop3")
-                li
-                  a(href="//gliders.ioos.us/data/", target="_blank") Glider DAC
-                li
-                  a(href="#") HF Radar DAC
-                li
-                  a(href="http://oceanview.pfeg.noaa.gov/ATN/", target="_blank") ATN DAC
-        li.fl.db.mr1.relative.tc
-          a.ph3.pv3.db.link.light-blue(href="#") Regional Associations
-        li.fl.db.relative.tc
-          a.ph3.pv3.db.link.light-blue(href="#", data-toggle="dropdown", role="button",  aria-haspopup="true", aria-expanded="false")
-            | About
-            span.caret
-              ul.dn(aria-labelledby="drop4")
-                li
-                  a(href="https://ioos.us/contact-us", target="_blank") Contact Us
+      img.m-2(src="/images/IOOS_Emblem_Tertiary_B_RGB.png",style={width: '480px'})
+  nav.navbar.navbar-expand-md.navbar-dark.bg-ioos
+    .container
+      a.navbar-brand.mr-5(href="//ioos.us")
+        img(alt="IOOS logo", src="/images/logo-navbar.png", style={'max-height': '42px'})
+      button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbar-content", aria-expanded="false", aria-label="Toggle nav")
+        span.navbar-toggler-icon
 
+      #navbar-content.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.dropdown.mr-4
+            a#nav-drop-data.nav-link.dropdown-toggle.fg-ioos(href="#", data-toggle="dropdown", role="button",  aria-haspopup="true", aria-expanded="false")
+              | Data
+            .dropdown-menu(aria-labelledby="nav-drop-data")
+              a.dropdown-item(href="//ioos.noaa.gov/about/ioos-by-the-numbers/") Metrics
+              a.dropdown-item(href="//data.ioos.us") Search
+              a.dropdown-item(href="//data.ioos.us/compliance", target="_blank") Compliance Checker
+
+          li.nav-item.dropdown.mr-4
+            a#nav-drop-viewers.nav-link.dropdown-toggle.fg-ioos(href="#", data-toggle="dropdown", role="button",  aria-haspopup="true", aria-expanded="false")
+              | Viewers
+            .dropdown-menu(aria-labelledby="nav-drop-viewers")
+              a.dropdown-item(href="https://oceansmap.com/comt/", target="_blank") COMT
+              a.dropdown-item(href="http://axiomdatascience.com/maps/ioos", target="_blank") Sensor Map
+              a.dropdown-item(href="//eds.ioos.us", target="_blank") EDS Viewer
+          li.nav-item.dropdown.mr-4
+            a#nav-drop-dacs.nav-link.dropdown-toggle.fg-ioos(href="#", data-toggle="dropdown", role="button",  aria-haspopup="true", aria-expanded="false")
+              | DACs
+            .dropdown-menu(aria-labelledby="nav-drop-dacs")
+              a.dropdown-item(href="//gliders.ioos.us/data/", target="_blank") Glider DAC
+              a.dropdown-item(href="#") HF Radar DAC
+              a.dropdown-item(href="http://oceanview.pfeg.noaa.gov/ATN/", target="_blank") ATN DAC
+          li.nav-item.mr-4
+            a.nav-link.fg-ioos(href="#") Regional Associations
+          li.nav-item.dropdown
+            a#nav-drop-about.nav-link.dropdown-toggle.fg-ioos(href="#", data-toggle="dropdown", role="button",  aria-haspopup="true", aria-expanded="false")
+              | About
+            .dropdown-menu(aria-labelledby="nav-drop-about")
+              a.dropdown-item(href="https://ioos.us/contact-us", target="_blank") Contact Us

@@ -8,7 +8,7 @@ const config = {
   mode: 'development',
   entry: {
     app: './src/app.js',
-    tachyons: 'tachyons/css/tachyons.css',
+    bootstrap: 'bootstrap/dist/css/bootstrap.min.css',
     atnstyle: './css/atn.css',
   },
   output: {
