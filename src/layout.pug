@@ -9,12 +9,10 @@ html
     meta(name="description", content="IOOS Animal Telemetry Network")
     meta(name="author", content="IOOS")
 
-    //link(rel="stylesheet", href="/lib/bootstrap/dist/css/bootstrap.css")
-    //link(rel="stylesheet", href="/lib/font-awesome/css/font-awesome.css")
-    //link(rel="stylesheet", href="/stylesheets/infographic.css")
-    //link(href="https://fonts.googleapis.com/css?family=Roboto", rel="stylesheet", type="text/css")
-    //link(rel="stylesheet", href="/stylesheets/style.css")
+    link(href="https://fonts.googleapis.com/css?family=Roboto", rel="stylesheet", type="text/css")
     link(rel="stylesheet",href="tachyons.css")
+    link(rel="stylesheet",href="atnstyle.css")
   body
+    include ioos-header
     block content
     script(src="app.bundle.js")
