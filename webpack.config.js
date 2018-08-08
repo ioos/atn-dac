@@ -8,8 +8,8 @@ const config = {
   mode: 'development',
   entry: {
     app: './src/app.js',
-    bootstrap: 'bootstrap/dist/css/bootstrap.min.css',
-    atnstyle: './css/atn.css',
+    //bootstrap: 'bootstrap/dist/css/bootstrap.min.css',
+    atnstyle: './css/atn.scss',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -20,6 +20,29 @@ const config = {
       {
         test: /\.pug$/,
         use: ['html-loader?attrs=false', 'pug-html-loader'],
+      },
+      {
+        test: /\.(scss)$/,
+        use: [
+          {
+            loader: 'style-loader', // inject CSS into page
+          },
+          {
+            loader: 'css-loader', // translates CSS into CommonJS modules
+          },
+          {
+            loader: 'postcss-loader', // run post css actions
+            options: {
+              plugins: function() {
+                // post css plugins
+                return [require('precss'), require('autoprefixer')];
+              },
+            },
+          },
+          {
+            loader: 'sass-loader', // compiles sass to CSS
+          },
+        ],
       },
       {
         test: /\.css$/,
