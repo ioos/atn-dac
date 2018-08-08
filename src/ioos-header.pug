@@ -33,8 +33,22 @@ header
               a.dropdown-item(href="//gliders.ioos.us/data/", target="_blank") Glider DAC
               a.dropdown-item(href="#") HF Radar DAC
               a.dropdown-item(href="http://oceanview.pfeg.noaa.gov/ATN/", target="_blank") ATN DAC
-          li.nav-item.mr-4
-            a.nav-link.fg-ioos(href="#") Regional Associations
+          li.nav-item.dropdown.mr-4
+            a#nac-drop-ras.nav-link.dropdown-toggle.fg-ioos(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+              | Regional Associations
+            .dropdown-menu(aria-labelledby="nav-drop-ras")
+              a.dropdown-item(href="//ioos.us/regions") IOOS Region Map
+              a.dropdown-item(href="//portal.aoos.org/" target="_blank") Alaska – AOOS
+              a.dropdown-item(href="//www.caricoos.org/drupal/" target="_blank") Caribbean – CariCOOS
+              a.dropdown-item(href="//data.cencoos.org/" target="_blank") Central and Northern California – CeNCOOS
+              a.dropdown-item(href="//glos.us/" target="_blank") Great Lakes – GLOS
+              a.dropdown-item(href="//data.gcoos.org/" target="_blank") Gulf of Mexico – GCOOS
+              a.dropdown-item(href="//maracoos.org/" target="_blank") Mid-Atlantic – MARACOOS
+              a.dropdown-item(href="//neracoos.org/realtime_map" target="_blank") Northeast Atlantic – NERACOOS
+              a.dropdown-item(href="//oos.soest.hawaii.edu/pacioos/voyager/" target="_blank") Pacific Islands – PacIOOS
+              a.dropdown-item(href="//nvs.nanoos.org/" target="_blank") Pacific Northwest – NANOOS
+              a.dropdown-item(href="//portal.secoora.org/" target="_blank") Southeast Atlantic – SECOORA
+              a.dropdown-item(href="//www.sccoos.org/data/overview/" target="_blank") Southern California – SCCOOS
           li.nav-item.dropdown
             a#nav-drop-about.nav-link.dropdown-toggle.fg-ioos(href="#", data-toggle="dropdown", role="button",  aria-haspopup="true", aria-expanded="false")
               | About
