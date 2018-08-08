@@ -79,6 +79,11 @@ const config = {
       template: 'src/data/index.pug',
       inject: false,
     }),
+    new HtmlWebpackPlugin({
+      filename: 'map/index.html',
+      template: 'src/map/index.pug',
+      inject: false,
+    }),
     new CopyWebpackPlugin([{from: 'images/*'}]),
   ],
 };
