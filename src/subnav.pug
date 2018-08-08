@@ -1,0 +1,16 @@
+nav.navbar.navbar-light.hilight-back.navbar-expand-md
+  .container
+    a.navbar-brand.text-white(href="/") Animal Tracking Network
+
+    button.navbar-toggler(type="button", data-toggle="collapse", data-target="#atn-navbar-content", aria-expanded="false", aria-label="Toggle nav")
+      span.navbar-toggler-icon
+
+    #atn-navbar-content.collapse.navbar-collapse
+      ul.navbar-nav.ml-auto
+        li.nav-item.mr-4(class={active: current === 'map'})
+          a.nav-link(href="/map") ⛯ Map
+        li.nav-item.mr-4(class={active: current === 'data'})
+          a.nav-link(href="/data") ☵ Data
+        li.nav-item(class={active: current === 'help'})
+          a.nav-link(href="/help") 🛈 Help
+
