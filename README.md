@@ -9,6 +9,5 @@ npm install
 npm run browsersync
 ```
 
-Should be available at http://localhost:3000
-
+The development instance will be available by default at http://localhost:3000, and automatically refresh whenever files are changed.
 
