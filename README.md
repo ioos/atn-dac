@@ -1,5 +1,7 @@
 # ATN DAC Landing
 
+The landing page for the IOOS ATN DAC.
+
 ### Development
 
 ```bash
