@@ -1,0 +1,44 @@
+extends ../layout
+
+block title
+  title IOOS ATN Help: #{title}
+
+block subnav
+  - var current = "help";
+  include ../subnav
+
+block content 
+  .container.mt-3
+    .row
+      .col-sm-3
+        .card.mb-3
+          .card-header Table of Contents
+          .card-body
+            p.card-text !{toc}
+
+        if prev
+          .card.mb-3
+            .card-header Previous Topic
+            .card-body
+              p.card-text
+                a(href=prev.link)=prev.title
+
+        if next
+          .card.mb-3
+            .card-header Next Topic
+            .card-body
+              p.card-text
+                a(href=next.link)=next.title
+
+      .col-sm-9
+        article !{body}
+
+    .row
+      .col-sm-12
+        ul.nav
+          li.nav-item.mr-auto
+            a.nav-link(href="#") IOOS Animal Telemetry Network data portal documentation
+          each ni in rellinks
+            li.nav-item
+              a.nav-link(href=ni[0],title=ni[1])=ni[3]
+

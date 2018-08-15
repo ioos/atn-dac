@@ -18,6 +18,18 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.fjson$/,
+        use: [
+          'html-loader?attrs=false',
+          {
+            loader: path.resolve('test-loader.js'),
+            options: {
+              template: 'src/help-templ.pug',
+            },
+          },
+        ],
+      },
+      {
         test: /\.pug$/,
         use: ['html-loader?attrs=false', 'pug-html-loader'],
       },
@@ -70,11 +82,6 @@ const config = {
       inject: false,
     }),
     new HtmlWebpackPlugin({
-      filename: 'help/index.html',
-      template: 'src/help/index.pug',
-      inject: false,
-    }),
-    new HtmlWebpackPlugin({
       filename: 'data/index.html',
       template: 'src/data/index.pug',
       inject: false,
@@ -90,6 +97,21 @@ const config = {
       inject: false,
     }),
     new CopyWebpackPlugin([{from: 'images/*'}]),
+    new HtmlWebpackPlugin({
+      filename: 'help/index.html',
+      template: 'src/help/index.fjson',
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'help/contact-us/index.html',
+      template: 'src/help/contact-us.fjson',
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'help/submit-data/index.html',
+      template: 'src/help/submit-data.fjson',
+      inject: false,
+    }),
   ],
 };
 
