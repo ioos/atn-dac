@@ -31,11 +31,11 @@ $theme-colors: (
 }
 
 .atn-nav-box:hover {
-    border-color: --var(primary);
+    border-color: var(--primary);
 }
 
 .atn-nav-box:hover .atn-nav-label {
-    background-color: --var(primary);
+    background-color: var(--primary);
     color: white;
 }
 
