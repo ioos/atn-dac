@@ -4,6 +4,32 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const helpFiles = new Promise(function(resolve, reject) {
+  const fs = require('fs');
+
+  var retFiles = [];
+  var files = fs.readdir('./src/help', function(err, files) {
+    if (err !== null) {
+      reject(err);
+    }
+
+    files.forEach(function(f) {
+      if (f.endsWith(".fjson") && f !== "genindex.fjson" && f !== "search.fjson") {
+        var tokenName = f.substring(0, f.length - 6),
+          pathName = (tokenName === "index") ? "" : tokenName + "/";
+
+        retFiles.push(new HtmlWebpackPlugin({
+          filename: 'help/' + pathName + 'index.html',
+          template: 'src/help/' + f,
+          inject: false,
+        }));
+      }
+    });
+
+    resolve(retFiles);
+  });
+});
+
 const config = {
   mode: 'development',
   entry: {
@@ -97,22 +123,18 @@ const config = {
       inject: false,
     }),
     new CopyWebpackPlugin([{from: 'images/*'}]),
-    new HtmlWebpackPlugin({
-      filename: 'help/index.html',
-      template: 'src/help/index.fjson',
-      inject: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'help/contact-us/index.html',
-      template: 'src/help/contact-us.fjson',
-      inject: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'help/submit-data/index.html',
-      template: 'src/help/submit-data.fjson',
-      inject: false,
-    }),
+    new CopyWebpackPlugin([{from: 'src/help/_images/*', to: 'help/_images/', flatten: true}]),
   ],
 };
 
-module.exports = config;
+const configPromise = new Promise(function(resolve, reject) {
+  helpFiles.then(function(files) {
+    //reject(files);
+    config.plugins = config.plugins.concat(files);
+    resolve(config);
+  }).catch(function(err) {
+    reject(err);
+  });
+});
+
+module.exports = configPromise;

@@ -9,37 +9,51 @@ var stripAnsi = require('strip-ansi');
 /**
  *  * Require ./webpack.config.js and make a bundler from it
  *   */
-var webpackConfig = require('../webpack.config');
-var bundler = webpack(webpackConfig);
+var webpackConfigPromise = require('../webpack.config');
 
-/**
- *  * Reload all devices when bundle is complete
- *   * or send a fullscreen error message to the browser instead
- *    */
-bundler.plugin('done', function(stats) {
-  if (stats.hasErrors() || stats.hasWarnings()) {
-    return browserSync.sockets.emit('fullscreen:message', {
-      title: 'Webpack Error:',
-      body: stripAnsi(stats.toString()),
-      timeout: 100000,
-    });
-  }
-  browserSync.reload();
-});
+async function main() {
+  var webpackConfig = await webpackConfigPromise;
+  var bundler = webpack(webpackConfig);
 
-/**
- *  * Run Browsersync and use middleware for Hot Module Replacement
- *   */
-browserSync.init({
-  server: 'server',
-  open: false,
-  logFileChanges: false,
-  middleware: [
-    webpackDevMiddleware(bundler, {
-      publicPath: webpackConfig.output.publicPath,
-      stats: {colors: true},
-    }),
-  ],
-  plugins: ['bs-fullscreen-message'],
-  files: ['css/**/*.css', 'src/**/*.js', 'index.html'],
-});
+  /**
+   *  * Reload all devices when bundle is complete
+   *   * or send a fullscreen error message to the browser instead
+   *    */
+  bundler.plugin('done', function(stats) {
+    if (stats.hasErrors() || stats.hasWarnings()) {
+      return browserSync.sockets.emit('fullscreen:message', {
+        title: 'Webpack Error:',
+        body: stripAnsi(stats.toString()),
+        timeout: 100000,
+      });
+    }
+    browserSync.reload();
+  });
+
+  /**
+   *  * Run Browsersync and use middleware for Hot Module Replacement
+   *   */
+  browserSync.init({
+    server: 'server',
+    open: false,
+    logFileChanges: false,
+    middleware: [
+      webpackDevMiddleware(bundler, {
+        publicPath: undefined,
+        stats: {colors: true},
+      }),
+    ],
+    plugins: ['bs-fullscreen-message'],
+    files: ['css/**/*.css', 'src/**/*.js', 'index.html'],
+  });
+}
+
+main()
+  .then(function() {
+    console.log("done");
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
+
+

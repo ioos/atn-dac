@@ -1,3 +1,7 @@
+$theme-colors: (
+  "primary": #5b859f
+);
+
 @import "~bootstrap/scss/bootstrap";
 
 .bg-ioos {
@@ -27,11 +31,11 @@
 }
 
 .atn-nav-box:hover {
-    border-color: #5b859f;
+    border-color: --var(primary);
 }
 
 .atn-nav-box:hover .atn-nav-label {
-    background-color: #5b859f;
+    background-color: --var(primary);
     color: white;
 }
 
@@ -129,10 +133,6 @@ body {
   }
 }
 
-.hilight-back {
-    background-color: #5b859f;
-}
-
 .relative {
     position: relative;
 }
@@ -162,6 +162,90 @@ body {
     background-repeat: no-repeat;
 }
 
+.help-toc ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0px;
+
+  ul {
+    list-style: square;
+    margin: 0 0 0 20px;
+  }
+}
+
+.help-body {
+
+  .note {
+    border: 1px solid var(--gray);
+    background-color: var(--light);
+    border-radius: 5px;
+  }
+
+  .first {
+    margin-top: 0 !important;
+  }
+
+  ol {
+    margin: 14px 0px;
+  }
+
+  .admonition {
+    font-size: 0.9em;
+    margin: 1em 0;
+    padding: 0;
+
+    p {
+      margin: 0;
+      padding: 1.25rem;
+    }
+
+    .admonition-title {
+      background-color: var(--secondary);
+      color: white;
+      margin: 0;
+      padding: 0.75rem 1.25rem;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0.7em 0 0.3em 0;
+  }
+
+  h2 {
+    margin: 1.3em 0 0.2em 0;
+    font-size: 1.35em;
+    padding-bottom: 0.5em;
+
+    border-bottom: 1px solid var(--primary);
+  }
+
+  a.headerlink {
+    visibility: hidden;
+    margin-left: 6px;
+    padding: 0 4px;
+  }
+
+  h1:hover > a.headerlink,
+  h2:hover > a.headerlink,
+  h3:hover > a.headerlink,
+  h4:hover > a.headerlink,
+  h5:hover > a.headerlink,
+  h6:hover > a.headerlink,
+  caption:hover > a.headerlink,
+  p.caption:hover > a.headerlink,
+  div.code-block-caption:hover > a.headerlink {
+    visibility: visible;
+  }
+
+
+}
 
 
 

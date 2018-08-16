@@ -10,11 +10,11 @@ block subnav
 block content 
   .container.mt-3
     .row
-      .col-sm-3
+      .col-md-4.col-lg-3.d-none.d-md-block
         .card.mb-3
           .card-header Table of Contents
-          .card-body
-            p.card-text !{toc}
+          .card-body.help-toc
+            | !{toc}
 
         if prev
           .card.mb-3
@@ -30,15 +30,12 @@ block content
               p.card-text
                 a(href=next.link)=next.title
 
-      .col-sm-9
-        article !{body}
+      .col-md-8.col-lg-9
+        article.help-body !{body}
 
     .row
       .col-sm-12
         ul.nav
           li.nav-item.mr-auto
-            a.nav-link(href="#") IOOS Animal Telemetry Network data portal documentation
-          each ni in rellinks
-            li.nav-item
-              a.nav-link(href=ni[0],title=ni[1])=ni[3]
+            a.nav-link(href="/help/") IOOS Animal Telemetry Network data portal documentation
 
