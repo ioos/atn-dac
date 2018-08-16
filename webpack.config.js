@@ -122,6 +122,11 @@ const config = {
       template: 'src/about/index.pug',
       inject: false,
     }),
+    new HtmlWebpackPlugin({
+      filename: 'help/index.html',
+      template: 'src/help/index.pug',
+      inject: false,
+    }),
     new CopyWebpackPlugin([{from: 'images/*'}]),
     new CopyWebpackPlugin([{from: 'src/help/_images/*', to: 'help/_images/', flatten: true}]),
   ],
