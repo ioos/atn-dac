@@ -48,7 +48,7 @@ const config = {
         use: [
           'html-loader?attrs=false',
           {
-            loader: path.resolve('test-loader.js'),
+            loader: path.resolve('help-json-loader.js'),
             options: {
               template: 'src/help-templ.pug',
             },
