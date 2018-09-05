@@ -1,2 +1,4 @@
 dist
 node_modules
+!src/help/index.pug
+src/help/
