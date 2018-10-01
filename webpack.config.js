@@ -129,6 +129,7 @@ const config = {
     }),
     new CopyWebpackPlugin([{from: 'images/*'}]),
     new CopyWebpackPlugin([{from: 'src/help/_images/*', to: 'help/_images/', flatten: true}]),
+    new CopyWebpackPlugin([{from: 'src/help/_downloads/*', to: 'help/_downloads/', flatten: true}]),
   ],
 };
 

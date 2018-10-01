@@ -22,7 +22,11 @@ $theme-colors: (
 }
 
 .offset-splash {
-  padding-top: 50px; 
+  padding-top: 50px;
+}
+
+.justify-text {
+  text-align: justify;
 }
 
 .atn-nav-box {
@@ -96,7 +100,7 @@ body {
     height: 200px;
   }
   .offset-splash {
-    padding-top: 100px; 
+    padding-top: 100px;
   }
   .atn-nav-box {
     height: 118px;
