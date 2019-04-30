@@ -108,11 +108,6 @@ const config = {
       inject: false,
     }),
     new HtmlWebpackPlugin({
-      filename: 'data/index.html',
-      template: 'src/data/index.pug',
-      inject: false,
-    }),
-    new HtmlWebpackPlugin({
       filename: 'map/index.html',
       template: 'src/map/index.pug',
       inject: false,
