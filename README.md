@@ -15,7 +15,7 @@ cp -r ${ATN_DOCS_REPO}/_build/json/* src/help/
 ```
 
 
-**Run the site**
+**Run**
 
 ```bash
 npm install
