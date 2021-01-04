@@ -1,24 +1,30 @@
 $theme-colors: (
-  "primary": #5b859f
+  "primary": #5b859f,
 );
 
 @import "~bootstrap/scss/bootstrap";
 
+// due to version mismatch between our bootstrap and ioos.us bootstrap,
+// we need to mod the container width or the footer is busted
+.container {
+  max-width: 970px;   // it's 960 in our version
+}
+
 .bg-ioos {
-    background-color: #0b3284;
+  background-color: #0b3284;
 }
 
 .fg-ioos {
-    color: #56cded !important;
+  color: #56cded !important;
 }
 
 .splash {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    position: absolute;
-    height: 75px;
-    width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  position: absolute;
+  height: 75px;
+  width: 100%;
 }
 
 .offset-splash {
@@ -30,17 +36,17 @@ $theme-colors: (
 }
 
 .atn-nav-box {
-    height: 75px;
-    border: 3px solid #0b424f;
+  height: 75px;
+  border: 3px solid #0b424f;
 }
 
 .atn-nav-box:hover {
-    border-color: var(--primary);
+  border-color: var(--primary);
 }
 
 .atn-nav-box:hover .atn-nav-label {
-    background-color: var(--primary);
-    color: white;
+  background-color: var(--primary);
+  color: white;
 }
 
 .atn-nav-label {
@@ -48,7 +54,7 @@ $theme-colors: (
   right: 10px;
   background-color: white;
   text-transform: uppercase;
-  font-family: 'roboto';
+  font-family: "roboto";
 
   color: #0f414c;
 }
@@ -58,7 +64,7 @@ $theme-colors: (
 }
 
 .navbar {
-  font-family: 'roboto';
+  font-family: "roboto";
 }
 
 .navbar .nav-link {
@@ -67,10 +73,11 @@ $theme-colors: (
 }
 
 .atn-title {
-  font-family: 'roboto';
+  font-family: "roboto";
 }
 
-html,body {
+html,
+body {
   height: 100%;
 }
 
@@ -138,25 +145,28 @@ body {
 }
 
 .relative {
-    position: relative;
+  position: relative;
 }
 
 .absolute {
-    position: absolute;
+  position: absolute;
 }
 
 .bg-atn-1 {
-    background: linear-gradient(rgba(51, 91, 138, 0.4), rgba(51, 91, 138, 0.4)),
-        url('/images/atn-nav-bg-1.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+  background: linear-gradient(rgba(51, 91, 138, 0.4), rgba(51, 91, 138, 0.4)),
+    url("/images/atn-nav-bg-1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .bg-atn-3 {
-    background: linear-gradient(rgba(166, 184, 190, 0.8), rgba(166, 184, 190, 0.8)),
-        url('/images/atn-nav-bg-3.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+  background: linear-gradient(
+      rgba(166, 184, 190, 0.8),
+      rgba(166, 184, 190, 0.8)
+    ),
+    url("/images/atn-nav-bg-3.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .help-toc ul {
@@ -171,7 +181,6 @@ body {
 }
 
 .help-body {
-
   .note {
     border: 1px solid var(--gray);
     background-color: var(--light);
@@ -204,7 +213,12 @@ body {
     }
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: var(--primary);
     font-weight: 700;
   }
@@ -224,7 +238,7 @@ body {
   }
 
   h3 {
-    margin: 1.0em 0 0.1em 0;
+    margin: 1em 0 0.1em 0;
     font-size: 1.2em;
     padding-bottom: 0.5em;
   }
@@ -246,10 +260,117 @@ body {
   div.code-block-caption:hover > a.headerlink {
     visibility: visible;
   }
-
-
 }
 
+footer {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  background-color: #020e38;
+  background-image: url("/images/bg_footer.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  margin-top: 50px;
+  position: relative;
 
+  .container {
+    .row {
+      .col-md-3 {
+        a {
+          color: #55d6f8;
+          display: block;
+          padding-bottom: 24px;
+          transition: all 0.3s ease;
 
+          &:hover {
+            text-decoration: none;
+            color: #fff !important;
+          }
+        }
+      }
+    }
+  }
 
+  #footer-col-2 {
+    margin-left: 0px;
+    margin-right: -20px;
+  }
+
+  #footer-col-3 {
+    .txt {
+      line-height: 14px;
+      padding-left: 22px;
+    }
+
+    div {
+      display: inline-block;
+    }
+
+    a:hover {
+      .ggt-icon-border {
+        background: #fff;
+        opacity: 0.8;
+      }
+    }
+
+    .ggt-icon-border {
+      transition: all 0.15s ease;
+      background: #55d6f8;
+      border-radius: 5px;
+      height: 39px;
+      width: 39px;
+
+      i {
+        color: #122b4d;
+        font-size: 28px;
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  #footer-col-4 {
+    background-image: url("/images/logo-ioos-white.png");
+    background-position: 0 50px;
+    background-repeat: no-repeat;
+    background-size: 72px;
+    color: #fff;
+    line-height: 16px;
+    padding-left: 120px;
+
+    a.btn {
+      font-size: 14px;
+      border: 1px solid #55d6f8;
+      border-radius: 0 !important;
+      padding: 8px 14px !important;   // adjusted due to column width diffs in bootstrap versions
+
+      &:hover {
+        border-color: #fff;
+      }
+    }
+
+    & > div {
+      padding-top: 50px;
+    }
+  }
+
+  #footer-col-2 h5,
+  #footer-col-3 h5 {
+    color: #fff;
+    padding-top: 40px;
+    padding-bottom: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Roboto Slab", Times, serif !important;
+  }
+
+  path {
+    fill: #003087;
+  }
+}
